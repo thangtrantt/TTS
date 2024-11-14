@@ -339,6 +339,8 @@ class Synthesizer(nn.Module):
             and self.tts_model.language_manager is not None
             and not self.tts_config.model == "xtts"
         ):
+            language_name = "en" if not language_name else language_name
+
             if len(self.tts_model.language_manager.name_to_id) == 1:
                 language_id = list(self.tts_model.language_manager.name_to_id.values())[0]
 
